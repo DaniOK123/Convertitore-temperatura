@@ -3,21 +3,59 @@
 def menu():
     
     print('Benvenuti al codice che permette di convertire la temperatura! \nChe temperatura vuoi usare oggi?')
-    scelta = int(input('1-Celsius | 2-Farenheit | 3-Kelvin | => '))
 
-    if scelta == 1:
-        calore = int(input('Quanti C° ci sono? => '))
-    elif scelta == 2:
-        calore = int(input('Quanti F° ci sono? => '))
-    elif scelta == 3:
-        calore = int(input('Quanti K° ci sono? => '))
+    while True:
+        
+        try:
+            scelta = int(input('1-Celsius | 2-Farenheit | 3-Kelvin | => '))
 
-    
+            if scelta < 1 or scelta > 3:
+                print('Deve essere un numero tra 1 e 3!')
+                continue
+            
 
-    print('In quale scala lo vuoi modificare?')
-    cambio = int(input('1-Celsius | 2-Farenheit | 3-Kelvin | => '))
+        except ValueError:
+            print('Deve essere un numero!')
+            continue
 
-    return scelta, calore, cambio
+        break
+
+
+    while True:
+
+        try:
+            if scelta == 1:
+                calore = int(input('Quanti C° ci sono? => '))
+
+            elif scelta == 2:
+                calore = int(input('Quanti F° ci sono? => '))
+
+            elif scelta == 3:
+                calore = int(input('Quanti K° ci sono? => '))  
+        
+        except ValueError:
+            print('Deve essere un numero!')
+            continue
+
+        break
+
+    while True:
+
+        print('In quale scala lo vuoi modificare?')
+
+        try:
+            cambio = int(input('1-Celsius | 2-Farenheit | 3-Kelvin | => '))
+
+            
+            if cambio < 1 or cambio > 3:
+                print('Deve essere un numero tra 1 e 3!')
+                continue
+
+        except ValueError:
+            print('Deve essere un numero!')
+            continue
+
+        return scelta, calore, cambio
 
 
 def main(scelta, calore, cambio):
